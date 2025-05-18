@@ -8,7 +8,7 @@ namespace Lab2
 {
     internal class RegularUser: User
     {
-        void PostComment()
+        public void PostComment()
         {
             Console.WriteLine("Коментар опубліковано.");
         }

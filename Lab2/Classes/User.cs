@@ -15,19 +15,23 @@ namespace Lab2
 
         public void SetPassword(string newPassword)
         {
-            if(_isAuthenticated || _password == String.Empty)
+            if(_isAuthenticated || string.IsNullOrEmpty(_password))
             {
                 _password = newPassword;
             }
+            else
+            {
+                Console.WriteLine("You must be authorized before changing the password.");
+            }
         }
-        public bool Authenticate(string inputPassword, string inputEmail)
+        public bool Authenticate(string inputPassword)
         {
-            _isAuthenticated = inputPassword == _password && Email == inputEmail;
+            _isAuthenticated = inputPassword == _password;
             return _isAuthenticated;
         }
         public virtual void DisplayInfo()
         {
-            Console.Write($"UserName: {UserName}, Email: {Email}");
+            Console.Write($"Name: {UserName}, Email: {Email}");
         }
     }
 }
